@@ -11,25 +11,6 @@ type Values = {
   tokeneditor: string[];
 };
 
-function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
-  const { boltColor, zapColor, sparkColor } = getColors(lightningString);
-  return (
-    <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
-      <List.Item
-        title={lightningString}
-        actions={
-          <ActionPanel>
-            <Action.CopyToClipboard content={lightningString} />
-          </ActionPanel>
-        }
-      />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }} />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }} />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }} />
-    </List>
-  );
-}
-
 export default function Command() {
   const { push } = useNavigation();
 
@@ -52,5 +33,24 @@ export default function Command() {
     >
       <Form.DatePicker id="datepicker" title="Time" />
     </Form>
+  );
+}
+
+function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
+  const { boltColor, zapColor, sparkColor } = getColors(lightningString);
+  return (
+    <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
+      <List.Item
+        title={lightningString}
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard content={lightningString} />
+          </ActionPanel>
+        }
+      />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }} />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }} />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }} />
+    </List>
   );
 }
