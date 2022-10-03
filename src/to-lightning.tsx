@@ -11,15 +11,15 @@ type Values = {
   tokeneditor: string[];
 };
 
-function Result({ timeString }: { timeString: string }) {
-  const { boltColor, zapColor, sparkColor } = getColors(timeString);
+function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
+  const { boltColor, zapColor, sparkColor } = getColors(lightningString);
   return (
-    <List>
+    <List navigationTitle={originalTimeString}>
       <List.Item
-        title={timeString}
+        title={lightningString}
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content={timeString} />
+            <Action.CopyToClipboard content={lightningString} />
           </ActionPanel>
         }
       />
@@ -38,8 +38,8 @@ export default function Command() {
     if (!time) {
       return popToRoot();
     }
-    const convertedTime = convertToLightning(time);
-    push(<Result timeString={convertedTime} />);
+    const { lightningString, originalTimeString } = convertToLightning(time);
+    push(<Result lightningString={lightningString} originalTimeString={originalTimeString} />);
   }
 
   return (

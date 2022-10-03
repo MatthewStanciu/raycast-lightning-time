@@ -4,25 +4,29 @@ import { convertFromLightning } from "../lib/convert";
 import validate from "../lib/validate";
 import randomTimeString from "../lib/random-time-string";
 
-function Result({ timeString }: { timeString: { withSeconds: string; withoutSeconds: string } }) {
-  const { withSeconds, withoutSeconds } = timeString;
+function Result({
+  timeString,
+}: {
+  timeString: { withSeconds: string; withoutSeconds: string; lightningString: string };
+}) {
+  const { withSeconds, withoutSeconds, lightningString } = timeString;
   return (
-    <List>
+    <List navigationTitle={lightningString}>
       <List.Item
-        title={withSeconds}
-        subtitle="With seconds"
+        title={withoutSeconds}
+        subtitle="no seconds"
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content={withSeconds} />
+            <Action.CopyToClipboard content={withoutSeconds} />
           </ActionPanel>
         }
       />
       <List.Item
-        title={withoutSeconds}
-        subtitle="Without seconds"
+        title={withSeconds}
+        subtitle="with seconds"
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content={withoutSeconds} />
+            <Action.CopyToClipboard content={withSeconds} />
           </ActionPanel>
         }
       />

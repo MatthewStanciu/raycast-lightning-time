@@ -17,8 +17,11 @@ export const convertToLightning = (time: Date) => {
   const zaps = Math.floor(totalZaps) % 16;
   const bolts = Math.floor(totalBolts) % 16;
 
-  const timeString = bolts.toString(16) + "~" + zaps.toString(16) + "~" + sparks.toString(16);
-  return timeString;
+  const lightningString = bolts.toString(16) + "~" + zaps.toString(16) + "~" + sparks.toString(16);
+  return {
+    lightningString,
+    originalTimeString: time.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }),
+  };
 };
 
 export const convertFromLightning = (time: string) => {
@@ -30,5 +33,5 @@ export const convertFromLightning = (time: string) => {
   }
   const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096);
 
-  return msToTime(millis);
+  return msToTime(millis, time);
 };
