@@ -17,7 +17,7 @@
       "mode": "view"
     },
     {
-      "name": "lightning-to-boring",
+      "name": "from-lightning",
       "title": "Convert from Lightning Time",
       "description": "Convert a Lightning Time string to BORING time",
       "mode": "view"
