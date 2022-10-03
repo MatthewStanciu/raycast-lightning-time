@@ -1,3 +1,5 @@
+import msToTime from "./ms-to-time";
+
 export const convertToLightning = (time: Date) => {
   const millisPerSpark = 21093.75; // 86400000 / 16^3
 
@@ -28,20 +30,4 @@ export const convertFromLightning = (time: string) => {
   const millis = (elapsed * 86400000) / 4096;
 
   return msToTime(millis);
-};
-
-const msToTime = (millis: number) => {
-  const ms = millis % 1000;
-  millis = (millis - ms) / 1000;
-  const secs = millis % 60;
-  millis = (millis - secs) / 60;
-  const mins = millis % 60;
-  const hrs = (millis - mins) / 60;
-
-  const date = new Date();
-  date.setHours(hrs);
-  date.setMinutes(mins);
-  date.setSeconds(secs);
-
-  return date.toLocaleTimeString();
 };
