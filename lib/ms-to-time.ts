@@ -11,7 +11,10 @@ const msToTime = (millis: number) => {
   date.setMinutes(mins);
   date.setSeconds(secs);
 
-  return date.toLocaleTimeString();
+  return {
+    withSeconds: date.toLocaleTimeString(),
+    withoutSeconds: date.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }),
+  };
 };
 
 export default msToTime;

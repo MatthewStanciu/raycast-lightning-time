@@ -1,10 +1,32 @@
-import { Action, ActionPanel, Detail, Form, showToast, Toast, useNavigation } from "@raycast/api";
+import { Action, ActionPanel, Form, List, showToast, Toast, useNavigation } from "@raycast/api";
 import { useState } from "react";
 import { convertFromLightning } from "../lib/convert";
 import validate from "../lib/validate";
 
-function Result({ timeString }: { timeString: string }) {
-  return <Detail markdown={`# ${timeString}`} />;
+function Result({ timeString }: { timeString: { withSeconds: string; withoutSeconds: string } }) {
+  const { withSeconds, withoutSeconds } = timeString;
+  return (
+    <List>
+      <List.Item
+        title={withSeconds}
+        subtitle="With seconds"
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard content={withSeconds} />
+          </ActionPanel>
+        }
+      />
+      <List.Item
+        title={withoutSeconds}
+        subtitle="Without seconds"
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard content={withoutSeconds} />
+          </ActionPanel>
+        }
+      />
+    </List>
+  );
 }
 
 export default function Command() {
@@ -37,7 +59,7 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="time" onChange={setTimeString} />
+      <Form.TextField id="time" title="Lightning Time string" onChange={setTimeString} />
     </Form>
   );
 }

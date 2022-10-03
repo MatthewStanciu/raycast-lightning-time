@@ -1,4 +1,4 @@
-import { Form, ActionPanel, Action, popToRoot, useNavigation, List, Icon, Color } from "@raycast/api";
+import { Form, ActionPanel, Action, popToRoot, useNavigation, List, Icon } from "@raycast/api";
 import { convertToLightning } from "../lib/convert";
 import getColors from "../lib/colors";
 
