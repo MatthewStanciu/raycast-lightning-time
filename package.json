@@ -11,7 +11,7 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
+      "name": "to-lightning",
       "title": "Convert to Lightning Time",
       "description": "Convert a BORING time string to Lightning Time",
       "mode": "view"
