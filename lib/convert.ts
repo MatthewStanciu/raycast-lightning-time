@@ -24,8 +24,8 @@ export const convertToLightning = (time: Date) => {
   };
 };
 
-export const convertFromLightning = (time: string) => {
-  const { bolts, zaps, sparks, charges } = getParts(time);
+export const convertFromLightning = (lightningString: string) => {
+  const { bolts, zaps, sparks, charges } = getParts(lightningString);
 
   let elapsed = (bolts * 16 + zaps) * 16 + sparks;
   if (charges > 0) {
@@ -33,5 +33,5 @@ export const convertFromLightning = (time: string) => {
   }
   const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096);
 
-  return msToTime(millis, time);
+  return msToTime(millis, lightningString);
 };

@@ -1,9 +1,9 @@
-const getParts = (time: string) => {
-  const timeSplit = time.split("~");
-  const bolts = parseInt(timeSplit[0], 16);
-  const zaps = parseInt(timeSplit[1], 16);
-  const sparks = parseInt(time.includes("|") ? timeSplit[2].split("|")[0] : timeSplit[2], 16);
-  const charges = parseInt(timeSplit[2].split("|")[1], 16) || 0;
+const getParts = (lightningString: string) => {
+  const lightningParts = lightningString.split("~");
+  const bolts = parseInt(lightningParts[0], 16);
+  const zaps = parseInt(lightningParts[1], 16);
+  const sparks = parseInt(lightningString.includes("|") ? lightningParts[2].split("|")[0] : lightningParts[2], 16);
+  const charges = parseInt(lightningParts[2].split("|")[1], 16) || 0;
 
   return {
     bolts,

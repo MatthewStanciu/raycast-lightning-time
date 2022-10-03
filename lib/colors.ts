@@ -7,8 +7,8 @@ type Colors = {
   sparkColor: string;
 };
 
-const getColors = (timeString: string): Colors => {
-  const { bolts, zaps, sparks, charges } = getParts(timeString);
+const getColors = (lightningString: string): Colors => {
+  const { bolts, zaps, sparks, charges } = getParts(lightningString);
   const boltColor = rgbHex(bolts * 16 + zaps, 161, 0);
   const zapColor = rgbHex(50, zaps * 16 + sparks, 214);
   const sparkColor = rgbHex(246, 133, sparks * 16 + charges);
