@@ -11,7 +11,7 @@ type Values = {
 };
 
 function Result({ timeString }: { timeString: string }) {
-  return <Detail markdown={timeString} />;
+  return <Detail markdown={`# ${timeString}`} />;
 }
 
 export default function Command() {
@@ -23,7 +23,6 @@ export default function Command() {
       return popToRoot();
     }
     const convertedTime = convert(time);
-    showToast({ title: "Submitted form", message: "See logs for submitted values" });
     push(<Result timeString={convertedTime} />);
   }
 
@@ -32,7 +31,7 @@ export default function Command() {
       <Form
         actions={
           <ActionPanel>
-            <Action.SubmitForm onSubmit={handleSubmit} />
+            <Action.SubmitForm title="Convert" onSubmit={handleSubmit} />
           </ActionPanel>
         }
       >
