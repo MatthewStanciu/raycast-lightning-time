@@ -1,4 +1,5 @@
 import msToTime from "./ms-to-time";
+import getParts from "./get-parts";
 
 export const convertToLightning = (time: Date) => {
   const millisPerSpark = 21093.75; // 86400000 / 16^3
@@ -21,11 +22,7 @@ export const convertToLightning = (time: Date) => {
 };
 
 export const convertFromLightning = (time: string) => {
-  const timeSplit = time.split("~");
-  const bolts = parseInt(timeSplit[0], 16);
-  const zaps = parseInt(timeSplit[1], 16);
-  const sparks = parseInt(time.includes("|") ? timeSplit[2].split("|")[0] : timeSplit[2], 16);
-  const charges = parseInt(timeSplit[2].split("|")[1], 16) || 0;
+  const { bolts, zaps, sparks, charges } = getParts(time);
 
   let elapsed = (bolts * 16 + zaps) * 16 + sparks;
   if (charges > 0) {

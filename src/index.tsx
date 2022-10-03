@@ -1,5 +1,6 @@
-import { Form, ActionPanel, Action, popToRoot, Detail, useNavigation } from "@raycast/api";
+import { Form, ActionPanel, Action, popToRoot, useNavigation, List, Icon, Color } from "@raycast/api";
 import { convertToLightning } from "../lib/convert";
+import getColors from "../lib/colors";
 
 type Values = {
   textfield: string;
@@ -11,7 +12,22 @@ type Values = {
 };
 
 function Result({ timeString }: { timeString: string }) {
-  return <Detail markdown={`# ${timeString}`} />;
+  const { boltColor, zapColor, sparkColor } = getColors(timeString);
+  return (
+    <List>
+      <List.Item
+        title={timeString}
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard content={timeString} />
+          </ActionPanel>
+        }
+      />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }} />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }} />
+      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }} />
+    </List>
+  );
 }
 
 export default function Command() {

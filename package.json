@@ -24,7 +24,8 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.40.1"
+    "@raycast/api": "^1.40.1",
+    "rgb-hex": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "16.10.3",
