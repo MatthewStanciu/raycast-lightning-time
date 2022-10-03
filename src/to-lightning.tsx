@@ -14,7 +14,7 @@ type Values = {
 function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
   const { boltColor, zapColor, sparkColor } = getColors(lightningString);
   return (
-    <List navigationTitle={originalTimeString}>
+    <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
       <List.Item
         title={lightningString}
         actions={

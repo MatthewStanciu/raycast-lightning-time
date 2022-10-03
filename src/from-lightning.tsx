@@ -14,7 +14,7 @@ function Result({
   lightningString: string;
 }) {
   return (
-    <List navigationTitle={lightningString}>
+    <List navigationTitle={lightningString} searchBarPlaceholder={lightningString} enableFiltering={false}>
       <List.Item
         title={withoutSeconds}
         subtitle="no seconds"
