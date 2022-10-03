@@ -1,6 +1,6 @@
 # Lightning Time Converter
 
-A Raycast extention to convert from BORING time to Lightning Time and vice versa ⚡
+A Raycast extention to convert from traditional time to Lightning Time and vice versa ⚡
 
 ## Usage
 

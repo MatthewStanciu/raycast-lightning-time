@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "lightning-time-converter",
   "title": "Lightning Time Converter",
-  "description": "Convert from BORING time to Lightning Time ⚡",
+  "description": "Convert from traditional time to Lightning Time ⚡",
   "icon": "command-icon.png",
   "author": "MatthewStanciu",
   "categories": [
@@ -13,13 +13,13 @@
     {
       "name": "to-lightning",
       "title": "Convert to Lightning Time",
-      "description": "Convert a BORING time string to Lightning Time",
+      "description": "Convert a time string to Lightning Time",
       "mode": "view"
     },
     {
       "name": "from-lightning",
       "title": "Convert from Lightning Time",
-      "description": "Convert a Lightning Time string to BORING time",
+      "description": "Convert a Lightning Time string to traditional time",
       "mode": "view"
     }
   ],

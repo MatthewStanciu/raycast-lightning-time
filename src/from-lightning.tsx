@@ -57,7 +57,7 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="time" title="Lightning Time string" onChange={setTimeString} />
+      <Form.TextField id="time" title="Lightning Time" onChange={setTimeString} />
     </Form>
   );
 }

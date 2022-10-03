@@ -50,7 +50,7 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.DatePicker id="datepicker" title="Boring time" />
+      <Form.DatePicker id="datepicker" title="Time" />
     </Form>
   );
 }
