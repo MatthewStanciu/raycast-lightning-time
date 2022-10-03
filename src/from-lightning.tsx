@@ -31,21 +31,15 @@ function Result({ timeString }: { timeString: { withSeconds: string; withoutSeco
 
 export default function Command() {
   const { push } = useNavigation();
-  const [timeString, setTimeString] = useState("8~0~0");
-
-  function validateTimeString(time: string) {
-    const isValid = validate(time);
-    if (!isValid) {
-      showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: "Try 8~0~0" });
-    }
-    return isValid;
-  }
+  const [timeString, setTimeString] = useState("");
 
   function handleSubmit() {
-    const isValid = validateTimeString(timeString);
+    const isValid = validate(timeString);
     if (isValid) {
       const convertedTime = convertFromLightning(timeString);
       push(<Result timeString={convertedTime} />);
+    } else {
+      showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: "Try 8~0~0" });
     }
   }
 
