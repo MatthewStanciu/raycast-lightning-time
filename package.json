@@ -13,7 +13,13 @@
     {
       "name": "index",
       "title": "Convert to Lightning Time",
-      "description": "Convert a time string to Lightning Time",
+      "description": "Convert a BORING time string to Lightning Time",
+      "mode": "view"
+    },
+    {
+      "name": "lightning-to-boring",
+      "title": "Convert from Lightning Time",
+      "description": "Convert a Lightning Time string to BORING time",
       "mode": "view"
     }
   ],

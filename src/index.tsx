@@ -1,5 +1,5 @@
-import { Form, ActionPanel, Action, showToast, popToRoot, Detail, useNavigation } from "@raycast/api";
-import convert from "../lib/convert";
+import { Form, ActionPanel, Action, popToRoot, Detail, useNavigation } from "@raycast/api";
+import { convertToLightning } from "../lib/convert";
 
 type Values = {
   textfield: string;
@@ -22,7 +22,7 @@ export default function Command() {
     if (!time) {
       return popToRoot();
     }
-    const convertedTime = convert(time);
+    const convertedTime = convertToLightning(time);
     push(<Result timeString={convertedTime} />);
   }
 
