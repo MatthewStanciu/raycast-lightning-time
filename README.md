@@ -8,6 +8,6 @@ This extension is not on the Raycast store. For now, to use it:
 
 - Clone this repository
 - Navigate to the directory where you cloned it
-- Run `yarn && yarn dev`
+- Run `npm i && npm run dev`
 
-The extension should be running locally & you should be able to use it.
+The extension should now be running locally & you should be able to use it.
