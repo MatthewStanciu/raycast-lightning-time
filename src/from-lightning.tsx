@@ -16,7 +16,7 @@ export default function Command() {
     if (!isValid) {
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: "Try 8~0~0" });
     } else {
-      showToast({ title: "Looking good!" });
+      showToast({ title: "Zap!" });
     }
     return isValid;
   }
