@@ -2,6 +2,7 @@ import { Action, ActionPanel, Form, List, showToast, Toast, useNavigation } from
 import { useState } from "react";
 import { convertFromLightning } from "../lib/convert";
 import validate from "../lib/validate";
+import randomTimeString from "../lib/random-time-string";
 
 function Result({ timeString }: { timeString: { withSeconds: string; withoutSeconds: string } }) {
   const { withSeconds, withoutSeconds } = timeString;
@@ -39,7 +40,8 @@ export default function Command() {
       const convertedTime = convertFromLightning(timeString);
       push(<Result timeString={convertedTime} />);
     } else {
-      showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: "Try 8~0~0" });
+      const randomTime = randomTimeString();
+      showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
     }
   }
 
