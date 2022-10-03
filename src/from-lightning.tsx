@@ -5,11 +5,14 @@ import validate from "../lib/validate";
 import randomTimeString from "../lib/random-time-string";
 
 function Result({
-  timeString,
+  withSeconds,
+  withoutSeconds,
+  lightningString,
 }: {
-  timeString: { withSeconds: string; withoutSeconds: string; lightningString: string };
+  withSeconds: string;
+  withoutSeconds: string;
+  lightningString: string;
 }) {
-  const { withSeconds, withoutSeconds, lightningString } = timeString;
   return (
     <List navigationTitle={lightningString}>
       <List.Item
@@ -41,8 +44,8 @@ export default function Command() {
   function handleSubmit() {
     const isValid = validate(timeString);
     if (isValid) {
-      const convertedTime = convertFromLightning(timeString);
-      push(<Result timeString={convertedTime} />);
+      const { withSeconds, withoutSeconds, lightningString } = convertFromLightning(timeString);
+      push(<Result withSeconds={withSeconds} withoutSeconds={withoutSeconds} lightningString={lightningString} />);
     } else {
       const randomTime = randomTimeString();
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
