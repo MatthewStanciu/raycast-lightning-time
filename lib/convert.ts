@@ -26,13 +26,12 @@ export const convertFromLightning = (time: string) => {
   const zaps = parseInt(timeSplit[1], 16);
   const sparks = parseInt(time.includes("|") ? timeSplit[2].split("|")[0] : timeSplit[2], 16);
   const charges = parseInt(timeSplit[2].split("|")[1], 16) || 0;
-  console.log(bolts, zaps, sparks, charges);
 
   let elapsed = (bolts * 16 + zaps) * 16 + sparks;
   if (charges > 0) {
     elapsed = elapsed * 16 + charges;
   }
-  const millis = (elapsed * 86400000) / 4096;
+  const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096);
 
   return msToTime(millis);
 };
