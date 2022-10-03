@@ -27,16 +27,14 @@ export default function Command() {
   }
 
   return (
-    <>
-      <Form
-        actions={
-          <ActionPanel>
-            <Action.SubmitForm title="Convert" onSubmit={handleSubmit} />
-          </ActionPanel>
-        }
-      >
-        <Form.DatePicker id="datepicker" title="Boring time" />
-      </Form>
-    </>
+    <Form
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Convert" onSubmit={handleSubmit} />
+        </ActionPanel>
+      }
+    >
+      <Form.DatePicker id="datepicker" title="Boring time" />
+    </Form>
   );
 }

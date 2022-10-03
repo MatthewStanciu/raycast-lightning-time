@@ -30,16 +30,14 @@ export default function Command() {
   }
 
   return (
-    <>
-      <Form
-        actions={
-          <ActionPanel>
-            <Action.SubmitForm title="Convert" onSubmit={handleSubmit} />
-          </ActionPanel>
-        }
-      >
-        <Form.TextField id="time" onChange={setTimeString} />
-      </Form>
-    </>
+    <Form
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Convert" onSubmit={handleSubmit} />
+        </ActionPanel>
+      }
+    >
+      <Form.TextField id="time" onChange={setTimeString} />
+    </Form>
   );
 }
