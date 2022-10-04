@@ -48,9 +48,33 @@ function Result({ lightningString, originalTimeString }: { lightningString: stri
           </ActionPanel>
         }
       />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }} />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }} />
-      <List.Item title="" icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }} />
+      <List.Item
+        title=""
+        icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }}
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard title="Copy Hex Code" content={`#${boltColor}`} />
+          </ActionPanel>
+        }
+      />
+      <List.Item
+        title=""
+        icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }}
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard title="Copy Hex Code" content={`#${zapColor}`} />
+          </ActionPanel>
+        }
+      />
+      <List.Item
+        title=""
+        icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }}
+        actions={
+          <ActionPanel>
+            <Action.CopyToClipboard title="Copy Hex Code" content={`#${sparkColor}`} />
+          </ActionPanel>
+        }
+      />
     </List>
   );
 }
