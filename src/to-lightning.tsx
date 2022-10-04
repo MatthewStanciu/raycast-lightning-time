@@ -1,6 +1,7 @@
-import { Form, ActionPanel, Action, popToRoot, useNavigation, List, Icon } from "@raycast/api";
+import { Form, ActionPanel, Action, popToRoot, useNavigation, List } from "@raycast/api";
 import { convertToLightning } from "../lib/convert";
 import getColors from "../lib/colors";
+import ColorListItem from "./components/color-list-item";
 
 type Values = {
   textfield: string;
@@ -48,33 +49,9 @@ function Result({ lightningString, originalTimeString }: { lightningString: stri
           </ActionPanel>
         }
       />
-      <List.Item
-        title=""
-        icon={{ source: Icon.CircleFilled, tintColor: { light: boltColor, dark: boltColor } }}
-        actions={
-          <ActionPanel>
-            <Action.CopyToClipboard title="Copy Hex Code" content={`#${boltColor}`} />
-          </ActionPanel>
-        }
-      />
-      <List.Item
-        title=""
-        icon={{ source: Icon.CircleFilled, tintColor: { light: zapColor, dark: zapColor } }}
-        actions={
-          <ActionPanel>
-            <Action.CopyToClipboard title="Copy Hex Code" content={`#${zapColor}`} />
-          </ActionPanel>
-        }
-      />
-      <List.Item
-        title=""
-        icon={{ source: Icon.CircleFilled, tintColor: { light: sparkColor, dark: sparkColor } }}
-        actions={
-          <ActionPanel>
-            <Action.CopyToClipboard title="Copy Hex Code" content={`#${sparkColor}`} />
-          </ActionPanel>
-        }
-      />
+      <ColorListItem color={boltColor} />
+      <ColorListItem color={zapColor} />
+      <ColorListItem color={sparkColor} />
     </List>
   );
 }
