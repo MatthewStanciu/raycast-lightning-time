@@ -23,6 +23,12 @@
       "mode": "view"
     },
     {
+      "name": "convert-current-time",
+      "title": "Convert Current Time to Lightning Time",
+      "description": "Convert the current time to Lightning Time",
+      "mode": "view"
+    },
+    {
       "name": "get-colors",
       "title": "Get Lightning Time Colors",
       "description": "Get the three colors that represent a Lightning Time string",
