@@ -21,6 +21,12 @@
       "title": "Convert from Lightning Time",
       "description": "Convert a Lightning Time string to traditional time",
       "mode": "view"
+    },
+    {
+      "name": "get-colors",
+      "title": "Get Lightning Time Colors",
+      "description": "Get the three colors that represent a Lightning Time string",
+      "mode": "view"
     }
   ],
   "dependencies": {
