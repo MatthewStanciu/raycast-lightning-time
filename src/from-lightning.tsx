@@ -7,6 +7,7 @@ import randomTimeString from "../lib/random-time-string";
 export default function Command() {
   const { push } = useNavigation();
   const [timeString, setTimeString] = useState("");
+  const [randomTime] = useState(randomTimeString());
 
   function handleSubmit() {
     const isValid = validate(timeString);
@@ -14,7 +15,6 @@ export default function Command() {
       const { withSeconds, withoutSeconds, lightningString } = convertFromLightning(timeString);
       push(<Result withSeconds={withSeconds} withoutSeconds={withoutSeconds} lightningString={lightningString} />);
     } else {
-      const randomTime = randomTimeString();
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
     }
   }
@@ -27,7 +27,7 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="time" title="Lightning Time" onChange={setTimeString} />
+      <Form.TextField id="time" title="Lightning Time" placeholder={randomTime} onChange={setTimeString} />
     </Form>
   );
 }
