@@ -15,6 +15,7 @@ function ColorListItem({
   return (
     <List.Item
       title=""
+      subtitle={`#${color}`}
       icon={{ source: Icon.CircleFilled, tintColor: { light: color, dark: color } }}
       actions={
         <ActionPanel>
