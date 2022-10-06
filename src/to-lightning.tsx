@@ -38,7 +38,7 @@ export default function Command() {
 }
 
 function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
-  const { boltColor, zapColor, sparkColor } = getColors(lightningString);
+  const colors = getColors(lightningString);
   return (
     <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
       <List.Item
@@ -49,9 +49,9 @@ function Result({ lightningString, originalTimeString }: { lightningString: stri
           </ActionPanel>
         }
       />
-      <ColorListItem color={boltColor} />
-      <ColorListItem color={zapColor} />
-      <ColorListItem color={sparkColor} />
+      {Object.values(colors).map((color) => (
+        <ColorListItem colors={colors} key={color} color={color} />
+      ))}
     </List>
   );
 }

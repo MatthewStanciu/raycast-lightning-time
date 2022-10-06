@@ -13,8 +13,8 @@ export default function Command() {
   function handleSubmit() {
     const isValid = validate(timeString);
     if (isValid) {
-      const { boltColor, zapColor, sparkColor } = getColors(timeString);
-      push(<Result lightningString={timeString} boltColor={boltColor} zapColor={zapColor} sparkColor={sparkColor} />);
+      const colors = getColors(timeString);
+      push(<Result lightningString={timeString} colors={colors} />);
     } else {
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
     }
@@ -34,21 +34,21 @@ export default function Command() {
 }
 
 function Result({
+  colors,
   lightningString,
-  boltColor,
-  zapColor,
-  sparkColor,
 }: {
+  colors: {
+    boltColor: string;
+    zapColor: string;
+    sparkColor: string;
+  };
   lightningString: string;
-  boltColor: string;
-  zapColor: string;
-  sparkColor: string;
 }) {
   return (
     <List navigationTitle={lightningString} searchBarPlaceholder={lightningString} enableFiltering={false}>
-      <ColorListItem color={boltColor} />
-      <ColorListItem color={zapColor} />
-      <ColorListItem color={sparkColor} />
+      {Object.values(colors).map((color) => (
+        <ColorListItem colors={colors} key={color} color={color} />
+      ))}
     </List>
   );
 }
