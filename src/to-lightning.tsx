@@ -1,4 +1,4 @@
-import { Form, ActionPanel, Action, popToRoot, useNavigation, List } from "@raycast/api";
+import { Form, ActionPanel, Action, popToRoot, useNavigation, List, Icon } from "@raycast/api";
 import { convertToLightning } from "../lib/convert";
 import getColors from "../lib/colors";
 import ColorListItem from "./components/color-list-item";
@@ -43,9 +43,10 @@ function Result({ lightningString, originalTimeString }: { lightningString: stri
     <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
       <List.Item
         title={lightningString}
+        icon={Icon.Clock}
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content={lightningString} />
+            <Action.CopyToClipboard title="Copy Lightning Time" content={lightningString} />
           </ActionPanel>
         }
       />
