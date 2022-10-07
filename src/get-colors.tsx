@@ -2,7 +2,7 @@ import { Form, ActionPanel, Action, useNavigation, List, showToast, Toast } from
 import getColors from "../lib/colors";
 import ColorListItem from "./components/color-list-item";
 import { useState } from "react";
-import normalize from "../lib/normalize";
+import validate from "../lib/validate";
 import randomTimeString from "../lib/random-time-string";
 
 export default function Command() {
@@ -11,10 +11,10 @@ export default function Command() {
   const [randomTime] = useState(randomTimeString());
 
   function handleSubmit() {
-    const { isValid, normalizedLightningString } = normalize(timeString);
+    const isValid = validate(timeString);
     if (isValid) {
-      const colors = getColors(normalizedLightningString);
-      push(<Result lightningString={normalizedLightningString} colors={colors} />);
+      const colors = getColors(timeString);
+      push(<Result lightningString={timeString} colors={colors} />);
     } else {
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
     }
