@@ -42,7 +42,7 @@ function Result({
   lightningString: string;
 }) {
   return (
-    <List navigationTitle={lightningString} searchBarPlaceholder={lightningString} enableFiltering={false}>
+    <List searchBarPlaceholder={lightningString} enableFiltering={false}>
       <List.Item
         title={withoutSeconds}
         subtitle="no seconds"

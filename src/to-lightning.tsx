@@ -40,7 +40,7 @@ export default function Command() {
 function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
   const colors = getColors(lightningString);
   return (
-    <List navigationTitle={originalTimeString} searchBarPlaceholder={originalTimeString} enableFiltering={false}>
+    <List searchBarPlaceholder={originalTimeString} enableFiltering={false}>
       <List.Item
         title={lightningString}
         icon={Icon.Clock}
