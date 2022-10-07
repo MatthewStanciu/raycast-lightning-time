@@ -1,7 +1,7 @@
 import { Action, ActionPanel, Form, List, showToast, Toast, useNavigation } from "@raycast/api";
 import { useState } from "react";
 import { convertFromLightning } from "../lib/convert";
-import validate from "../lib/validate";
+import normalize from "../lib/normalize";
 import randomTimeString from "../lib/random-time-string";
 
 export default function Command() {
@@ -10,9 +10,9 @@ export default function Command() {
   const [randomTime] = useState(randomTimeString());
 
   function handleSubmit() {
-    const isValid = validate(timeString);
+    const { isValid, normalizedLightningString } = normalize(timeString);
     if (isValid) {
-      const { withSeconds, withoutSeconds, lightningString } = convertFromLightning(timeString);
+      const { withSeconds, withoutSeconds, lightningString } = convertFromLightning(normalizedLightningString);
       push(<Result withSeconds={withSeconds} withoutSeconds={withoutSeconds} lightningString={lightningString} />);
     } else {
       showToast({ style: Toast.Style.Failure, title: "Invalid time string", message: `Try ${randomTime}` });
