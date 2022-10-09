@@ -28,7 +28,7 @@ export const convertToLightning = (time: Date) => {
     (charges > 0 ? "|" + charges.toString(16) : "");
   return {
     lightningString,
-    originalTimeString: time.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }),
+    originalTimeString: time.toLocaleTimeString(),
   };
 };
 
