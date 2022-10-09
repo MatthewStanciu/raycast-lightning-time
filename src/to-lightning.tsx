@@ -39,6 +39,7 @@ export default function Command() {
 
 function Result({ lightningString, originalTimeString }: { lightningString: string; originalTimeString: string }) {
   const colors = getColors(lightningString);
+  const noCharges = lightningString.split("|")[0] || lightningString;
   return (
     <List searchBarPlaceholder={originalTimeString} enableFiltering={false}>
       <List.Item
@@ -47,6 +48,7 @@ function Result({ lightningString, originalTimeString }: { lightningString: stri
         actions={
           <ActionPanel>
             <Action.CopyToClipboard title="Copy Lightning Time" content={lightningString} />
+            <Action.CopyToClipboard title="Copy Without Charges" content={noCharges} />
           </ActionPanel>
         }
       />
