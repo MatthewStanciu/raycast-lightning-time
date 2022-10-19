@@ -10,4 +10,4 @@ This extension is not yet on the Raycast store. For now, to use it:
 - Navigate to the directory where you cloned it
 - Run `npm i && npm run dev`
 
-The extension should now be running locally & you should be able to use it.
+The extension should now be running locally & you should be able to use it. It will stay in your Raycast even after you stop the server.
