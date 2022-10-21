@@ -1,3 +1,7 @@
-# Lightning Time Converter Changelog
+# Lightning Time Changelog
 
 ## [Initial Version] - 2022-10-03
+
+## [Renamed Extension] - 2022-10-20
+
+- Renamed extension from Lightning Time Converter to Lightning Time, and other things to prepare it for the Store.
