@@ -10,10 +10,4 @@ Learn more about how Lightning Time works & play around with it here: https://bl
 
 # Install
 
-This extension is not yet on the Raycast store [(PR 🙏)](https://github.com/raycast/extensions/pull/3285). For now, here's how to install it:
-
-- Clone this repository
-- Navigate to the directory where you cloned it
-- Run `npm i && npm run dev`
-
-The extension should now be installed! You can stop the dev server & it'll persist.
+[Raycast Store](https://www.raycast.com/MatthewStanciu/lightning-time)
